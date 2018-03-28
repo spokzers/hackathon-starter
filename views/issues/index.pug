@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h2= title
+  hr
+
+  
+    //- p= issues.length
+  each issue in issues
+    .row.issue-list
+      .panel-body
+        .col-sm-6
+          //- img(src='https://i.imgur.com/2AaBlpf.png', height=40)
+          a(href='#')
+            h4
+              b= issue.title
+          small= "-- By " + issue.posted_by +' on '+ issue.posted_on
+
+        .col-sm-6
+          each tag in issue.tags
+            span.badge= tag
+        //- .col-sm-1
+        //-   | 5
