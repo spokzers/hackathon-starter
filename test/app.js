@@ -48,3 +48,11 @@ describe('GET /random-url', () => {
       .expect(404, done);
   });
 });
+
+describe('GET /issues', () => {
+  it('should return 302 OK', (done) => {
+    request(app)
+      .get('/issues')
+      .expect(302, done);
+  });
+});
