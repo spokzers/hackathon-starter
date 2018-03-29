@@ -9,15 +9,13 @@ block content
   each issue in issues
     .row.issue-list
       .panel-body
-        .col-sm-6
+        .col-sm-8
           //- img(src='https://i.imgur.com/2AaBlpf.png', height=40)
           a(href='/issues/'+issue.issue_no)
             h4
               b= issue.title
-          small= "-- By " + issue.posted_by +' on '+ issue.posted_on
+          small= "By " + issue.owner.email +' on '+ issue.createdAt
 
-        .col-sm-6
+        .col-sm-4
           each tag in issue.tags
             span.badge= tag
-        //- .col-sm-1
-        //-   | 5

@@ -78,6 +78,7 @@ exports.postCreate = (req, res) => {
 exports.index = (req, res) => {
   Issue
     .find({})
+    .populate('owner')
     .then(issues => {
       res.render('issues/index', {
     		title: 'Issue Listing',
