@@ -1,14 +1,9 @@
 .navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
-      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand(href='/')
-        i.fa.fa-cube
-        | Project name
+      a.navbar-brand(href='/', style="font-family: Nafees")
+        //- i.fa.fa-cube
+        | شہری
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li(class=(title === 'Home') ? 'active' : undefined)
@@ -31,7 +26,7 @@
               if user.profile.picture
                 img(src=user.profile.picture)
               else
-                img(src=user.gravatar(60))
+                //- img(src=user.gravatar(60))
               span= user.profile.name || user.email || user.id
               i.caret
             ul.dropdown-menu
@@ -40,3 +35,4 @@
               li.divider
               li
                 a(href='/logout') Logout
+                

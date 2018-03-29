@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+
+    .row
+      .col-sm-12
+        h2= issue.title
+        if issue.status == "open"
+          span.badge.badge-success= issue.status
+          b= " " + issue.owner.email + " "
+          | opened on
+          b= " " +issue.date
+        hr
+
+    .row
+      .col-sm-8
+        .timeline-comment
+          .timeline-comment-header
+            b= issue.owner.email + " "
+            | on
+            b= " " + issue.date
+          .timeline-comment-body
+            p= issue.description
+
+        each comment in issue.comments
+          .timeline-comment
+            .timeline-comment-header
+              b= comment.author + " "
+              | on
+              b= " " + comment.date
+            .timeline-comment-body
+              p= comment.description
+
+        form.timeline-comment(method="POST", action="/issues/"+issue.issue_no+"/comment")
+          input(type='hidden', name='_csrf', value=_csrf)
+          .timeline-comment-header
+            | Add a comment
+          .discussion-body
+            textarea.form-control.editor_md(data-provide="markdown", rows="10", data-fullscreen="false", data-resize="vertical", placeholder="What are your thoughts?", name="description")
+          .form-actions.text-right
+            input.btn.btn-success(type="submit", value="Comment")
+
+      .col-sm-4
+        .discussion-sidebar
+          .section_title
+            | Labels
+          .section_subtitle
+            each tag in issue.tags
+              span.badge=tag + " "

@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+
+    .row
+      .col-sm-12
+        h3
+          | Create Issue
+
+    .row
+      .col-sm-8
+        form.timeline-comment(method="POST")
+          input(type='hidden', name='_csrf', value=_csrf)
+          .discussion-header
+            input.form-control(name="title", placeholder="Title")
+          .discussion-body
+            textarea.form-control.editor_md(data-provide="markdown", rows="10", data-fullscreen="false", data-resize="vertical", placeholder="Enter a description of the Issue you are facing", name="description")
+          .form-actions.text-right
+            input.btn.btn-primary(type="submit", value="Submit Issue")
+      .col-sm-4
+        .discussion-sidebar
+          .section_title
+            | Labels
+          .section_subtitle
+            | None yet
