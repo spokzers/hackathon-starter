@@ -139,9 +139,8 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-app.get('/issues/create', passportConfig.isAuthenticated, issueController.creation);
-app.get('/issues', passportConfig.isAuthenticated, issueController.index)
 
+app.get('/issues', passportConfig.isAuthenticated, issueController.index)
 app.get('/issues/create', passportConfig.isAuthenticated, issueController.getCreate);
 app.post('/issues/create', passportConfig.isAuthenticated, issueController.postCreate);
 app.post('/issues/:issue_no/comment', passportConfig.isAuthenticated, issueController.postComment);
