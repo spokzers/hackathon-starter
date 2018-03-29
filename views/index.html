@@ -1,0 +1,809 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="/images/logos/header/favicon-0_0.png" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="google-play-app" content="app-id=com.careem.acma">
+    <meta name="msapplication-TileImage" content="/images/acma_icon_appstore.png" />
+    <meta name="apple-itunes-app" content="app-id=592978487">
+    <meta name="theme-color" content="#37B44E" />
+    <link rel="apple-touch-icon" href="/images/acma_icon_appstore.png" ">         
+    <meta name="google-site-verification" content="FR2oYslYnF3VFRf67NnnjhiHl8wjRvkFqtWr0fRW2iU" />
+
+ 
+
+
+
+                             <title>Shehri - Concerned Citizens</title>
+     <meta name="description" content="Careem is the #1 ride-hailing app in MENA, Pakistan & Turkey. Download the app to book a safe, reliable ride whenever you need one, or sign up to drive with us.">
+      
+      
+  
+  
+    <link type="text/css" rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/app.css" />
+    <link type="text/css" rel="stylesheet" href="/css/flickity.css" />
+
+    <link type="text/css" rel="stylesheet" href="/css/animate.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+
+
+    <link rel="stylesheet" href="/https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/Header.min.css">
+    <link rel="stylesheet" href="/https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/Footer.min.css">
+    <link rel="stylesheet" href="/https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/DefaultGrid.min.css">
+
+    <script>
+        var language_id = "1";
+        var language_code = "en";
+        var country_code = "ae";
+        var page_name = "";
+        
+        
+            </script>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react@16.2.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.production.min.js"></script>
+    <script>
+        if (window.UILibCommons == null) {
+            UILibCommons = {};
+        }
+
+        if (React && !window.UILibCommons.React) {
+            window.UILibCommons.React = React;
+        }
+
+        if (ReactDOM && !window.UILibCommons.ReactDOM) {
+            window.UILibCommons.ReactDOM = ReactDOM;
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.6.2/superagent.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aUSUAEjLJckXwFloNaAJpkCVv0HORQI&language=en"></script>
+
+    <script src="js/jquery.smartbanner.js"></script>
+    <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+    <script src="js/flickity.pkgd.min.js"></script>
+    <script src="js/showLoading.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/service/IpInfoService.js"></script>
+    <script src="js/service/ServiceAreaService.js"></script>
+    <script src="js/service/ServiceProviderService.js"></script>
+    <script src="js/service/LocationService.js"></script>
+    <script src="js/service/TripEstimateService.js"></script>
+    <script src="js/components/AutoComplete.js"></script>
+        <script src="js/components/LocationSearch2.js"></script>
+    <script src="js/components/TripEstimate.js"></script>
+    <script src="js/components/CitySearch.js"></script>
+    <script src="js/components/ServiceAreas.js"></script>
+    <script src="js/components/CarTypes.js"></script>
+    <script src="js/components/Stories.js"></script>
+    <script src="js/components/dotCMSService.js"></script>
+    <script src="js/gMapStyles.js"></script>
+
+    <script>
+    jQuery(function () {
+    if(jQuery('.banner-container').length > 0)
+    {
+        jQuery.smartbanner({
+            daysHidden: 15,   // days to hide banner after close button is clicked (defaults to 15)
+            daysReminder: 90, // days to hide banner after "VIEW" button is clicked (defaults to 90)
+            appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
+            title: 'Careem',
+            author: 'Careem - Transportation',
+            button: 'View',
+            speedIn: 100, // Show animation speed of the banner
+            speedOut: 100, // Close animation speed of the banner
+            appendToSelector: 'header',
+            inAppStore: 'On the App Store',
+            inGooglePlay: 'In Google Play',
+            onClose: function() {
+                jQuery('#smartbanner').addClass('hide');
+                jQuery('.logoNew').removeClass('fixLogo');
+                jQuery('.ab-pos').removeClass('abFix');
+            }
+            /*hideOnInstall: true*/
+        });
+
+        if(jQuery('#smartbanner').length > 0){
+            jQuery('.logoNew').addClass('fixLogo');
+            jQuery('.ab-pos').addClass('abFix');
+        }
+    }
+});
+</script>
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js', {scope: '/'}).then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :disappointed:
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+    </script>
+
+</head>
+<body>
+
+
+
+
+
+            
+
+
+
+
+
+
+<script src="/js/Header.min.js"></script>
+
+<script>
+    (function (c) {
+        window.UILib.headerProps = {
+            selectedLanguage: 'en',
+            languageUrls: [
+                        {
+                    key: 'en',
+                    title: 'EN',
+                    url: '/en-ae/'
+                },
+                        {
+                    key: 'ar',
+                    title: 'AR',
+                    url: '/ar-ae/'
+                },
+            ],
+            sidebarButtons: [
+                c(
+                    window.UILib.Header.Button, { type: 'filled', key: 'sign-up' },
+                    c('a', { href: 'https://drive.careem.com/' }, 'Become a Shehri')
+                ),
+                c(
+                    window.UILib.Header.Button, { key: 'sign-in' },
+                    c('a', { href: 'https://app.careem.com?lang=en' }, 'Sign in')
+                )
+            ],
+
+
+            buttons: [
+                c(
+                    window.UILib.Header.Button, { type: 'borderless', key: 'sign-in' },
+                    c('a', { href: 'https://app.careem.com?lang=en' }, 'Sign in')
+                ),
+                c(
+                    window.UILib.Header.Button, { key: 'sign-up' },
+                    c('a', { href: 'https://drive.careem.com/' }, 'Become a Shehri')
+                )
+            ],
+            sectionsAndItems: [
+                {
+                    caption: 'Shehri',
+                    list: [
+                                {
+                            text: 'How it works',
+                            url: '/en-ae/how-it-works/'
+                        },
+                                {
+                            text: 'What can you do?',
+                            url: 'https://app.careem.com/?lang=en'
+                        },
+                    ]
+                },
+                {
+                    caption: 'About Us',
+                    list: [
+                                {
+                            text: 'Our Mission',
+                                                        url: '/en-ae/cities/'
+                        },
+                                {
+                            text: 'Blog',
+                            target: '_blank',                            url: 'https://old.careem.com/blog'
+                        },
+                    ]
+                },
+                {
+                    url: 'https://help.careem.com/',
+                    text: 'Contact'
+                }
+            ]
+        };
+    } (window.UILibCommons.React.createElement));
+</script>
+
+<!--Top navigation-->
+
+
+
+
+<div id="pageLoading" class="full-page-animate stop-loading">
+    <div class="animation-careem">
+        <div class="span">
+                   
+            <div class="typing_loader"></div>
+        </div>
+    </div>
+    <div class="backdrop2"></div>
+</div>
+
+<header class="header-container container" id="header-react-container">
+</header>
+
+<script>
+    window.UILib.renderHeader = function(props) {
+        ReactDOM.render(
+            React.createElement(UILib.Header.default, props),
+            document.getElementById('header-react-container')
+        );
+    };
+
+    window.UILib.renderHeader(window.UILib.headerProps);
+</script>
+      
+      
+  
+  
+
+
+<!--Hero Section-->
+
+<main>
+    <section class="bg-primary">
+        <div
+            class="marketing-site-hero"
+            style="background: url('./images/karachi1.jpg');background-attachment:fixed ">
+            <div class="container" >
+            <div class="_0347a70b1c">
+    <img src="./images/shehri.png">
+    </div>
+                <div class="row row-flex-mid">
+                    <div class="marketing-site-hero-content columns small-12 medium-12 large-7">
+                        <h1>In the face of impossible odds, people who love their country can change it.</h1>
+                        <p class="description hide-for-small-only">Whether you’re a Customer getting from A to B, or a Captain getting behind the wheel, our mission is to move you towards better living.</p>
+                        <a href="/https://drive.careem.com/" class="round button primary">Voice your Issue</a>
+                        <a href="/https://app.careem.com/signup?lang=en" class="round button">What can I do?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+    <!-- Slider -->
+    <section class="bg-white article-group-section every-ride-section">
+        <div class="content-wrapper">
+            <div class="container">
+                  
+              
+      
+      
+              
+        
+          
+<h1 class="h1">Small steps, Big aims</h1>
+
+<div class="row">
+      <div class="article-info-card article-info-card-every-ride medium-4 column">
+      <div class="card-image" style="background-image:url(/images/7b5624cebc/icn_empowering.svg)"></div>
+      <h3>Empowering people</h3>
+      <p>We hope to empower citizen to be more responsible agent in the society.</p>
+    </div>
+      <div class="article-info-card article-info-card-every-ride medium-4 column">
+      <div class="card-image" style="background-image:url(/images/c5f71d47df/icn_simplifying_lives.svg)"></div>
+      <h3>Raising Awareness</h3>
+      <p>Know what your rights are, and what each department does.</p>
+    </div>
+      <div class="article-info-card article-info-card-every-ride medium-4 column">
+      <div class="card-image" style="background-image:url(/images/16f176492c/icn_impacting.svg)"></div>
+      <h3>Solving Problems</h3>
+      <p>Your day to day problems gets highlighted and forwarded to authorities.</p>
+    </div>
+  </div>
+      
+      
+  
+                </div>
+        </div>
+    </section>
+
+    <!-- City Search -->
+    <!-- <section class="grey map-brakcet" style="background-image: url('/dA/e8f3d55c1e/new-map.svg')">
+        <div class="content-wrapper content-wrapper-city-search">
+            <div class="container">
+                <div class="cities-overview">
+                    <div class="small-12 medium-12 large-6 columns">
+                        <h1 class="h1">
+                            90+ cities, 13 countries and our journey continues
+                        </h1>
+                        <div class="medium-10">
+                            <div class="text cell">
+                                Our dynamic growth has allowed us to expand across the region and leap over continents.
+                            </div>
+                            <script>
+                                var citySearchPlaceholder = "Search for your city";
+                                var findCityButtonText = "Find city";
+                                var id = "newcitysearch";
+                                var searchUrl = "?language_id=1";
+                            </script>
+                            <div class="row collapse mb-3">
+                                <div class="small-12 columns">
+                                    <div class="mt10 relative no-top-mobile drop-list" id="citysearch"></div>
+                                </div>
+                            </div>
+                            <div class="row collapse">
+                                <div class="small-6 columns">
+                                    <a id="search-button" class="classic button">Find city</a>
+                                </div>
+                                <div class="small-6 columns text-right">
+                                    <a href="//en-ae/cities" class="next-link mx-2">View all cities<img src="images/farward-ico.svg" class="forward"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="small-12 medium-12 large-6 columns full-width-responsive hide-for-large mb20"> <img
+                    class="cities-image" src="dA/e8f3d55c1e/new-map.svg"> </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!--Product slider-->
+    <section class="bg-white">
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="small-12 medium-6 columns">
+                    <h1 class="h1 medium-11">
+                       Issues
+                    </h1>
+                    <div class="medium-10">
+                        <div class="text cell">Look into and see the impact we have been able to create.</div>
+                                            </div>
+                </div>
+
+                                <script>
+                    var countryStoryMap = {};
+                                        
+                    countryStoryMap['QA'] = {'stories': []};                    
+                    countryStoryMap['BH'] = {'stories': []};                    
+                    countryStoryMap['KW'] = {'stories': []};                    
+                    countryStoryMap['OM'] = {'stories': []};                    
+                    countryStoryMap['PS'] = {'stories': []};                    
+                    countryStoryMap['JO'] = {'stories': []};                    
+                    countryStoryMap['MA'] = {'stories': []};                    
+                    countryStoryMap['TR'] = {'stories': []};                    
+                    countryStoryMap['IQ'] = {'stories': []};                    
+                    countryStoryMap['LB'] = {'stories': []};                    
+                    countryStoryMap['EG'] = {'stories': []};                    
+                    countryStoryMap['PK'] = {'stories': []};                    
+                    countryStoryMap['AE'] = {'stories': [{
+                      'title' : 'Mohammad Nauman',
+                      'text' : 'Captain in Dubai',
+                      'image' : './rahul.jpeg',
+                      'youtubeVideoId' : 'XHUCHUfU7pw'},
+                    {
+                      'title' : 'Aakash Jon',
+                      'text' : 'Colleague in Dubai',
+                      'image' : '/dA/2b27f65040/Aakash John.jpg',
+                      'youtubeVideoId' : 'dmG6icu6BiE'},
+                    {
+                      'title' : 'Muhammad Zafar',
+                      'text' : 'Captain in Dubai',
+                      'image' : '/dA/5cd985ea0e/Muhammad Zafar.jpg',
+                      'youtubeVideoId' : '6-4PLVORrAs'}]};                    
+                    countryStoryMap['SA'] = {'stories': [{
+                      'title' : 'Salem Khafeer',
+                      'text' : 'Captain in KSA',
+                      'image' : '/dA/58abf13b69/Salem Khafeer.jpg',
+                      'youtubeVideoId' : 'IS6lnthN5VE'},
+                    {
+                      'title' : 'Salman Abdullah',
+                      'text' : 'Captain in KSA',
+                      'image' : '/dA/1c2eefb564/Salman Abdullah.jpg',
+                      'youtubeVideoId' : '8LUUJ1ZhI-U'},
+                    {
+                      'title' : 'Ibrahim Mohammad',
+                      'text' : 'Captain in KSA',
+                      'image' : '/dA/0ff32d011a/Ibrahim Mohammad.jpg',
+                      'youtubeVideoId' : 'lhNeUC4nrXw'}]};                </script>
+
+                <style>
+                    .story-video-player {
+                        position: relative;
+                        background-color: black;
+                        overflow: hidden;
+                        padding-top: 56.3%;
+                        transition: padding 400ms;
+                        border-radius: 6px;
+                    }
+
+                    .story-video-player.collapsed {
+                        padding-top: 0;
+                        border-radius: 0;
+                    }
+
+                    .story-video-player .btn-story-video-player-stop {
+                        position: absolute;
+                        padding: 0.7rem;
+                        cursor: pointer;
+                        color: white;
+                        font-size: 2.3rem;
+                        line-height: 0.5;
+                        text-shadow: 1px 1px 7px #000;
+
+                        right: 0;
+                        top: -2rem;
+                        opacity: 0;
+                        transition: opacity 300ms 50ms, top 300ms 50ms;
+                    }
+
+                    .story-video-player:hover .btn-story-video-player-stop {
+                        top: 0;
+                        opacity: 1;
+                    }
+
+                    [dir=rtl] .story-video-player .btn-story-video-player-stop {
+                        right: auto;
+                        left: 0;
+                    }
+
+                    .story-video-player iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .carousel-cell {
+                        width: 300px;
+                    }
+
+                    @media (min-width:953px) {
+                        .carousel-cell {
+                            width: 33%;
+                            /*Temporary: Changes with the number of items.*/
+                        }
+                    }
+
+                    .carousel-cell-container:after {
+                        background: none;
+                    }
+
+                    .carousel-overlay {
+                        background: linear-gradient(180deg, transparent 0%, #000 100%);
+                        z-index: auto;
+                    }
+
+                    .carousel-text .story-name {
+                        width: 200px;
+                    }
+                </style>
+
+                <div class="small-12 columns">
+                    <div class="story-video-player collapsed"></div>
+                </div>
+
+                <div class="small-12 columns">
+                    <div class="carousel" id="stories">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            
+    <script>
+        var pickUpPlaceholder = "Enter pickup location";
+        var dropoffPlaceholder = "Enter dropoff location";
+        //var fareEstimatorHeading = "Fare estimate";
+
+        var signUpRideText = "Signup and ride now";
+        var signUpRideUrl = "https://app.careem.com/signup/?lang={lang}";
+        var estimatorMessages = {
+            rideNow: "Ride Now",
+            rideLater: "Ride Later"
+        };
+    </script>
+
+    <!--Fare Estimator-->
+    <!-- <section class="grey fare-estimator">
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="cities-overview">
+                    <div class="small-12 medium-6 columns sec-form">
+                        <h1 class="h1 small-10 mt2-d">What will your Careem cost?</h1>
+                        <div class="text cell">
+                            Enter a pickup and dropoff location to get a fare estimate for our different car types.
+                        </div>
+                        <div class="medium-12 large-10 drop-list" id='trip-estimate'></div>
+                    </div>
+                    <div id="gmap" class="small-12 medium-6 columns full-width-responsive"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="js/pages/index.js"></script>
+<script src="js/pages/autocompleteControl.js"></script>
+<script>
+    var storyVideoPlayer = new StoryVideoPlayer({'container': '.story-video-player', 'lang': language_code});
+
+    jQuery(document)
+        .on('click', '[data-youtube-id]', function (event) {
+            var target = event.target,
+                youtubeId = target.getAttribute('data-youtube-id');
+            if (youtubeId) {
+                storyVideoPlayer.playYouTube(youtubeId);
+            }
+        })
+        .on('click', '.btn-story-video-player-stop', function (event) {
+            storyVideoPlayer.stop();
+        });
+</script> -->
+
+  
+          
+      
+      
+              
+        
+          <!--Footer-->
+
+
+
+
+<footer id="footer-container" class="bg-primary">
+</footer>
+
+<script>
+    var citySearchPlaceholder = "Type in your city";
+    var findCityButtonText = "";
+    var searchUrl = "?language_id=1";
+</script>
+
+<div class="modal-overlay closed" id="modal-overlay"></div>
+<div class="modal closed" id="search-modal">
+    <button class="close-button" id="close-button"></button>
+    <div class="modal-guts search-modal">
+        <h1>Not your location?</h1>
+            <div  id="footercitysearch" class="mt10 relative no-top-mobile drop-list">
+
+            <ul id="footerservicearealist" class="common-search-dropdown hide"></ul>
+            </div>
+
+    <div class="search-desc">Tell us your city so we can display the correct information.</div>
+    </div>
+</div>
+
+
+<!--
+<div class="search-modal">
+    <h1>Not your location?</h1>
+            <div  id="footercitysearch" class="mt10 relative no-top-mobile">
+
+            </div>
+
+    <div class="search-desc">Tell us your city so we can display the correct information.</div>
+</div>
+-->
+
+
+
+<script>
+    var citiesSocialMediaUrls = [];
+            citiesSocialMediaUrls['morocco'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['doha'] = {facebook: 'https://www.facebook.com/careemqat', twitter: 'https://www.twitter.com/careemqat', instagram: 'https://www.instagram.com/careemqat'};
+            citiesSocialMediaUrls['wakrah'] = {facebook: 'https://www.facebook.com/careemqat', twitter: 'https://www.twitter.com/careemqat', instagram: 'https://www.instagram.com/careemqat'};
+            citiesSocialMediaUrls['manama'] = {facebook: 'https://www.facebook.com/careem.bh/', twitter: 'https://twitter.com/CareemBAH', instagram: 'https://instagram.com/CareemBAH'};
+            citiesSocialMediaUrls['irbid'] = {facebook: 'https://www.facebook.com/CareemJOR/', twitter: 'https://www.twitter.com/CareemJOR/', instagram: 'https://www.instagram.com/CareemJOR/'};
+            citiesSocialMediaUrls['zarqa'] = {facebook: 'https://www.facebook.com/CareemJOR/', twitter: 'https://www.twitter.com/CareemJOR/', instagram: 'https://www.instagram.com/CareemJOR/'};
+            citiesSocialMediaUrls['aqaba'] = {facebook: 'https://www.facebook.com/CareemJOR/', twitter: 'https://www.twitter.com/CareemJOR/', instagram: 'https://www.instagram.com/CareemJOR/'};
+            citiesSocialMediaUrls['rabat'] = {facebook: 'https://www.facebook.com/careemmar/', twitter: 'https://www.twitter.com/careemmar/', instagram: 'https://www.instagram.com/careemmar/'};
+            citiesSocialMediaUrls['marrakech'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['kuwait city'] = {facebook: 'https://www.facebook.com/careemkuwait/', twitter: 'https://twitter.com/CareemKWT', instagram: 'https://www.instagram.com/CareemKWT'};
+            citiesSocialMediaUrls['muscat'] = {facebook: 'https://www.facebook.com/CareemOM/', twitter: 'https://www.twitter.com/Careem', instagram: 'https://www.instagram.com/Careem'};
+            citiesSocialMediaUrls['ramallah'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['nablus'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['gaza'] = {facebook: 'https://www.facebook.com/careemPAL/', twitter: 'https://twitter.com/careempal', instagram: 'https://www.instagram.com/careempal/'};
+            citiesSocialMediaUrls['baghdad'] = {facebook: 'https://www.facebook.com/careem/', twitter: 'https://twitter.com/Careem', instagram: 'https://www.instagram.com/careemiraq/'};
+            citiesSocialMediaUrls['beirut'] = {facebook: 'https://facebook.com/CareemLEB', twitter: 'https://twitter.com/CareemLEB', instagram: 'https://instagram.com/CareemLEB'};
+            citiesSocialMediaUrls['amman'] = {facebook: 'https://facebook.com/CareemJOR', twitter: 'https://twitter.com/CareemJOR', instagram: 'https://instagram.com/CareemJOR'};
+            citiesSocialMediaUrls['aljowf'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['tihamah'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['najran'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['istanbul'] = {facebook: 'https://www.facebook.com/careem/', twitter: 'https://twitter.com/CareemTR', instagram: 'https://www.instagram.com/careemtr/'};
+            citiesSocialMediaUrls['madinah governorates'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['riyadh'] = {facebook: 'https://www.facebook.com/CareemKSA/', twitter: 'https://twitter.com/careemKSA', instagram: 'https://www.instagram.com/careemKSA/'};
+            citiesSocialMediaUrls['dammam'] = {facebook: 'https://www.facebook.com/CareemKSA/', twitter: 'https://twitter.com/careemKSA', instagram: 'https://www.instagram.com/careemKSA/'};
+            citiesSocialMediaUrls['jeddah'] = {facebook: 'https://www.facebook.com/careemKSA', twitter: 'https://twitter.com/careemKSA', instagram: 'https://www.instagram.com/careemKSA'};
+            citiesSocialMediaUrls['jubail'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['madinah'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['al hasa'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['qassim'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['taif'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['aseer'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['alkharj'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['jazan'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['tabuk'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['al bahah'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['hail'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['kaec'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['hafar albatin'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['al ula'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['cairo'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['sahel'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['alexandria'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['gouna'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['damanhour'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['tanta'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['mansoura'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['hurghada'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['port said'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['suez'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['ismailia'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['zagazig'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['damietta'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['banha'] = {facebook: 'https://www.facebook.com/CareemEG/', twitter: 'https://twitter.com/careemegy', instagram: 'https://www.instagram.com/careemegy/'};
+            citiesSocialMediaUrls['karachi'] = {facebook: 'https://facebook.com/CareemPAK', twitter: 'https://twitter.com/CareemPAK', instagram: 'https://instagram.com/CareemPAK'};
+            citiesSocialMediaUrls['lahore'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['islamabad'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['peshawar'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['faisalabad'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['hyderabad'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['multan'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['gujranwala'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['sialkot'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['abbottabad'] = {facebook: 'https://www.facebook.com/careempakistan/', twitter: 'https://twitter.com/careempak', instagram: 'https://www.instagram.com/careempak/'};
+            citiesSocialMediaUrls['mardan'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['sargodha'] = {facebook: '$city.facebooklink', twitter: '$city.twitterlink', instagram: '$city.instagramlink'};
+            citiesSocialMediaUrls['dubai'] = {facebook: 'https://www.facebook.com/careemuae/', twitter: 'https://twitter.com/careemuae/', instagram: 'https://www.instagram.com/careemuae/'};
+            citiesSocialMediaUrls['abu dhabi'] = {facebook: 'https://www.facebook.com/careemuae/', twitter: 'https://twitter.com/CareemUAE', instagram: 'https://www.instagram.com/careemuae/'};
+            citiesSocialMediaUrls['sharjah'] = {facebook: 'https://www.facebook.com/careemuae/', twitter: 'https://twitter.com/careemuae/', instagram: 'https://www.instagram.com/careemuae/'};
+            citiesSocialMediaUrls['al ain'] = {facebook: 'https://www.facebook.com/careemuae/', twitter: 'https://www.twitter.com/careemuae/', instagram: 'https://www.instagram.com/careemuae/'};
+            citiesSocialMediaUrls['ras al khaimah'] = {facebook: 'https://www.facebook.com/careemuae/', twitter: 'https://twitter.com/careemuae/', instagram: 'https://www.instagram.com/careemuae/'};
+            citiesSocialMediaUrls['ajman'] = {facebook: 'https://www.facebook.com/careemuae/', twitter: 'https://twitter.com/careemuae/', instagram: 'https://www.instagram.com/careemuae/'};
+            citiesSocialMediaUrls['yanbu'] = {facebook: 'http://facebook.com/careemKSA', twitter: 'http://twitter.com/careemKSA', instagram: 'http://instagram.com/careemKSA'};
+            citiesSocialMediaUrls['casablanca'] = {facebook: 'https://facebook.com/CareemMAR', twitter: 'https://twitter.com/CareemMAR', instagram: 'https://instagram.com/CareemMAR'};
+            citiesSocialMediaUrls['makkah'] = {facebook: 'https://www.facebook.com/careemKSA', twitter: 'https://twitter.com/careemKSA', instagram: 'https://www.instagram.com/careemKSA'};
+    </script>
+
+<script src="js/app.js"></script>
+<script src="bower_components/what-input/dist/what-input.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/owl.carousel.exec.js"></script>
+<script src="js/GAscript.js"></script>
+<script src="https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/Footer.min.js"></script>
+<script src="https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/DefaultGrid.min.js"></script>
+<script>
+    UILib.DefaultGrid.gridStyles['container-fluid'] = UILib.DefaultGrid.gridStyles['container-fluid'] + ' container';
+    window.UILib.footerProps = {
+        sections: [
+            {
+                caption: 'Shehri',
+                list: [
+                        {
+                    text: 'How it works',
+                                        target: '',
+                    url: '/en-ae/how-it-works/'
+                },
+                        {
+                    text: 'What can you do?',
+                    target: '_blank',                    target: '_blank',
+                    url: 'http://app.careem.com/?lang=en'
+                },
+                ]
+            },
+            {
+                caption: 'Discover',
+                list: [
+                        {
+                    text: 'Our Mission',
+                                        url: '/en-ae/cities/'
+                },
+                        {
+                    text: 'Blog',
+                    target: '_blank',                    url: 'https://old.careem.com/blog?lang=en'
+                },
+                ]
+            },
+            {
+                caption: 'Understand',
+                list: [
+                        {
+                    text: 'Civil Autorities',
+                                        url: '/en-ae/our-story/'
+                },
+                        {
+                    text: 'Municipalities',
+                                        url: '/en-ae/business'
+                },
+
+                ]
+            }
+        ],
+        listUnderLogo: [
+            {
+                text: '',
+                url: '',
+                onClick: function(e) {
+                    e.preventDefault();
+                    openFooterCitySearchModal()
+                },
+                alwaysVisible: true
+            },
+            {
+                text: 'Help',
+                url: 'https://help.careem.com/'
+            }
+        ],
+        appStore: 'https://itunes.apple.com',
+        googlePlay:
+            'https://play.google.com/store/',
+        facebook: 'https://www.facebook.com/',
+        twitter: 'https://twitter.com/',
+        instagram: 'https://www.instagram.com/',
+        linkedIn: 'https://www.linkedin.com/',
+        terms: { url: '/en-ae/terms/', text: 'Terms' },
+        privacy: { url: '/en-ae/privacy/', text: 'Privacy' },
+        copyright: '©2018 Chukandar',
+        gridStyles: UILib.DefaultGrid.gridStyles,
+        selectedLanguage: '1',
+        languageUrls: [
+                        
+            {
+                key: '1',
+                title: 'English',
+                url: '/en-ae/'
+            },
+                        
+            {
+                key: '3',
+                title: 'Arabic',
+                url: '/ar-ae/'
+            },
+        ]
+    };
+</script>
+<script src="js/pages/footer.js"></script>
+<script>new WOW().init();</script>
+<script>
+    // m = $('main');
+    // f = $('footer');
+    // $(document).ready(function() {
+    //     m.css('margin-bottom', f.height());
+    // });
+    // $(window).resize(function() {
+    //     m.css('margin-bottom', f.height());
+    // });
+</script>
+
+</body>
+</html>
+
+      
+      
+  
+    

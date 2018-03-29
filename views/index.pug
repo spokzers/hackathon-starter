@@ -1,0 +1,570 @@
+doctype html
+html.no-js(lang='en', dir='ltr')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    link(href='/images/logos/header/favicon-0_0.png', rel='icon', type='image/x-icon')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+    meta(name='google-play-app', content='app-id=com.careem.acma')
+    meta(name='msapplication-TileImage', content='/images/acma_icon_appstore.png')
+    meta(name='apple-itunes-app', content='app-id=592978487')
+    meta(name='theme-color', content='#37B44E')
+    link(rel='apple-touch-icon', href='/images/acma_icon_appstore.png')
+    meta(name='google-site-verification', content='FR2oYslYnF3VFRf67NnnjhiHl8wjRvkFqtWr0fRW2iU')
+    title Shehri - Concerned Citizens
+    meta(name='description', content='Careem is the #1 ride-hailing app in MENA, Pakistan & Turkey. Download the app to book a safe, reliable ride whenever you need one, or sign up to drive with us.')
+    link(type='text/css', rel='stylesheet', href='css/owl.carousel.min.css')
+    link(type='text/css', rel='stylesheet', href='css/owl.theme.default.min.css')
+    link(type='text/css', rel='stylesheet', href='css/app.css')
+    link(type='text/css', rel='stylesheet', href='css/flickity.css')
+    link(type='text/css', rel='stylesheet', href='css/animate.css')
+    link(type='text/css', rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/Header.min.css')
+    link(rel='stylesheet', href='https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/Footer.min.css')
+    link(rel='stylesheet', href='https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/DefaultGrid.min.css')
+    script.
+      var language_id = "1";
+      var language_code = "en";
+      var country_code = "ae";
+      var page_name = "";
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+    script(crossorigin='', src='https://unpkg.com/react@16.2.0/umd/react.production.min.js')
+    script(crossorigin='', src='https://unpkg.com/react-dom@16.2.0/umd/react-dom.production.min.js')
+    script.
+      if (window.UILibCommons == null) {
+      UILibCommons = {};
+      }
+      if (React && !window.UILibCommons.React) {
+      window.UILibCommons.React = React;
+      }
+      if (ReactDOM && !window.UILibCommons.ReactDOM) {
+      window.UILibCommons.ReactDOM = ReactDOM;
+      }
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/superagent/3.6.2/superagent.min.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aUSUAEjLJckXwFloNaAJpkCVv0HORQI&language=en')
+    script(src='js/jquery.smartbanner.js')
+    script(src='bower_components/foundation-sites/dist/js/foundation.js')
+    script(src='js/flickity.pkgd.min.js')
+    script(src='js/showLoading.js')
+    script(src='js/slick.min.js')
+    script(src='js/service/IpInfoService.js')
+    script(src='js/service/ServiceAreaService.js')
+    script(src='js/service/ServiceProviderService.js')
+    script(src='js/service/LocationService.js')
+    script(src='js/service/TripEstimateService.js')
+    script(src='js/components/AutoComplete.js')
+    script(src='js/components/LocationSearch2.js')
+    script(src='js/components/TripEstimate.js')
+    script(src='js/components/CitySearch.js')
+    script(src='js/components/ServiceAreas.js')
+    script(src='js/components/CarTypes.js')
+    script(src='js/components/Stories.js')
+    script(src='js/components/dotCMSService.js')
+    script(src='js/gMapStyles.js')
+    script.
+      jQuery(function () {
+      if(jQuery('.banner-container').length > 0)
+      {
+      jQuery.smartbanner({
+      daysHidden: 15,   // days to hide banner after close button is clicked (defaults to 15)
+      daysReminder: 90, // days to hide banner after "VIEW" button is clicked (defaults to 90)
+      appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
+      title: 'Careem',
+      author: 'Careem - Transportation',
+      button: 'View',
+      speedIn: 100, // Show animation speed of the banner
+      speedOut: 100, // Close animation speed of the banner
+      appendToSelector: 'header',
+      inAppStore: 'On the App Store',
+      inGooglePlay: 'In Google Play',
+      onClose: function() {
+      jQuery('#smartbanner').addClass('hide');
+      jQuery('.logoNew').removeClass('fixLogo');
+      jQuery('.ab-pos').removeClass('abFix');
+      }
+      /*hideOnInstall: true*/
+      });
+      if(jQuery('#smartbanner').length > 0){
+      jQuery('.logoNew').addClass('fixLogo');
+      jQuery('.ab-pos').addClass('abFix');
+      }
+      }
+      });
+    script.
+      if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js', {scope: '/'}).then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+      // registration failed :disappointed:
+      console.log('ServiceWorker registration failed: ', err);
+      });
+      });
+      }
+  body
+    script(src='https://s3-eu-west-1.amazonaws.com/unpkg-ui-lib/@careem/ui-lib/0.1.7/Header.min.js')
+    script.
+      (function (c) {
+      window.UILib.headerProps = {
+      selectedLanguage: 'en',
+      languageUrls: [
+      {
+      key: 'en',
+      title: 'EN',
+      url: '/en-ae/'
+      },
+      {
+      key: 'ar',
+      title: 'AR',
+      url: '/ar-ae/'
+      },
+      ],
+      sidebarButtons: [
+      c(
+      window.UILib.Header.Button, { type: 'filled', key: 'sign-up' },
+      c('a', { href: 'https://drive.careem.com/' }, 'Become a Shehri')
+      ),
+      c(
+      window.UILib.Header.Button, { key: 'sign-in' },
+      c('a', { href: 'https://app.careem.com?lang=en' }, 'Sign in')
+      )
+      ],
+      buttons: [
+      c(
+      window.UILib.Header.Button, { type: 'borderless', key: 'sign-in' },
+      c('a', { href: 'https://app.careem.com?lang=en' }, 'Sign in')
+      ),
+      c(
+      window.UILib.Header.Button, { key: 'sign-up' },
+      c('a', { href: 'https://drive.careem.com/' }, 'Become a Shehri')
+      )
+      ],
+      sectionsAndItems: [
+      {
+      caption: 'Shehri',
+      list: [
+      {
+      text: 'How it works',
+      url: '/en-ae/how-it-works/'
+      },
+      {
+      text: 'What can you do?',
+      url: 'https://app.careem.com/?lang=en'
+      },
+      ]
+      },
+      {
+      caption: 'About Us',
+      list: [
+      {
+      text: 'Our Mission',
+      url: '/en-ae/cities/'
+      },
+      {
+      text: 'Blog',
+      target: '_blank',                            url: 'https://old.careem.com/blog'
+      },
+      ]
+      },
+      {
+      url: 'https://help.careem.com/',
+      text: 'Contact'
+      }
+      ]
+      };
+      } (window.UILibCommons.React.createElement));
+    // Top navigation
+    #pageLoading.full-page-animate.stop-loading
+      .animation-careem
+        .span
+          .typing_loader
+      .backdrop2
+    ._04eeed4ac2
+      ._04eeed4ac2
+        ._2be4939f24._9c4e067c71
+          ._513e48d2c8
+            span Shehri
+            svg._1ea0406e06._834b6bb6cb._d2faa2e1ae(viewbox='0 0 114 57', height='5px', width='9px')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#toggle-triangle-expand')
+          ._27be4ecaf1._44bb50403b(style='height: 0px;')
+            ul._18b1c4b1bb._97c2c99587._d52f39a584
+              li._41091f06a5
+                a(href='/en-ae/how-it-works/') How it works
+              li._41091f06a5
+                a(href='https://app.careem.com/?lang=en') What can you do?
+      ._04eeed4ac2
+        ._2be4939f24._9c4e067c71
+          ._513e48d2c8
+            span About Us
+            svg._1ea0406e06._834b6bb6cb._d2faa2e1ae(viewbox='0 0 114 57', height='5px', width='9px')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#toggle-triangle-expand')
+          ._27be4ecaf1._44bb50403b(style='height: 0px;')
+            ul._18b1c4b1bb._97c2c99587._d52f39a584
+              li._41091f06a5
+                a(href='/en-ae/cities/') Our Mission
+              li._41091f06a5
+                a(href='https://old.careem.com/blog', target='_blank') Blog
+      ._04eeed4ac2
+        ._b0710f3e3b._Dy83Wvr3LEdwAZzdKtk7
+          a(href='https://help.careem.com/') Contact
+
+    script.
+      window.UILib.renderHeader = function(props) {
+      ReactDOM.render(
+      React.createElement(UILib.Header.default, props),
+      document.getElementById('header-react-container')
+      );
+      };
+      window.UILib.renderHeader(window.UILib.headerProps);
+    // Hero Section
+    main
+      section.bg-primary
+        .marketing-site-hero(style="background: url('./images/karachi1.jpg');background-attachment:fixed ")
+          .container
+            ._0347a70b1c
+              img(src='./images/shehri.png')
+            .row.row-flex-mid
+              .marketing-site-hero-content.columns.small-12.medium-12.large-7
+                h1 In the face of impossible odds, people who love their country can change it.
+                p.description.hide-for-small-only
+                  | We started Shehri with the mission to foster civic awareness and responsibility..
+                a.round.button.primary(href='/issues/create') Voice your Issue
+                a.round.button(href='/signup') Become a Shehri?
+      // Slider
+      section.bg-white.article-group-section.every-ride-section
+        .content-wrapper
+          .container
+            h1.h1 Small steps, Big aims
+            .row
+              .article-info-card.article-info-card-every-ride.medium-4.column
+                .card-image(style='background-image:url(/dA/7b5624cebc/icn_empowering.svg)')
+                h3 Empowering people
+                p We hope to empower citizen to be more responsible agent in the society.
+              .article-info-card.article-info-card-every-ride.medium-4.column
+                .card-image(style='background-image:url(/dA/c5f71d47df/icn_simplifying_lives.svg)')
+                h3 Raising Awareness
+                p Know what your rights are, and what each department does.
+              .article-info-card.article-info-card-every-ride.medium-4.column
+                .card-image(style='background-image:url(/dA/16f176492c/icn_impacting.svg)')
+                h3 Solving Problems
+                p Your day to day problems gets highlighted and forwarded to authorities.
+      // City Search
+      //
+        <section class="grey map-brakcet" style="background-image: url('/dA/e8f3d55c1e/new-map.svg')">
+        <div class="content-wrapper content-wrapper-city-search">
+        <div class="container">
+        <div class="cities-overview">
+        <div class="small-12 medium-12 large-6 columns">
+        <h1 class="h1">
+        90+ cities, 13 countries and our journey continues
+        </h1>
+        <div class="medium-10">
+        <div class="text cell">
+        Our dynamic growth has allowed us to expand across the region and leap over continents.
+        </div>
+        <script>
+        var citySearchPlaceholder = "Search for your city";
+        var findCityButtonText = "Find city";
+        var id = "newcitysearch";
+        var searchUrl = "?language_id=1";
+        </script>
+        <div class="row collapse mb-3">
+        <div class="small-12 columns">
+        <div class="mt10 relative no-top-mobile drop-list" id="citysearch"></div>
+        </div>
+        </div>
+        <div class="row collapse">
+        <div class="small-6 columns">
+        <a id="search-button" class="classic button">Find city</a>
+        </div>
+        <div class="small-6 columns text-right">
+        <a href="/en-ae/cities" class="next-link mx-2">View all cities<img src="images/farward-ico.svg" class="forward"></a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="small-12 medium-12 large-6 columns full-width-responsive hide-for-large mb20"> <img
+        class="cities-image" src="dA/e8f3d55c1e/new-map.svg"> </div>
+        </div>
+        </div>
+        </div>
+        </section>
+      // Product slider
+      section.bg-white
+        .content-wrapper
+          .container
+            .small-12.medium-6.columns
+              h1.h1.medium-11
+                | Issues
+              .medium-10
+                .text.cell Look into and see the impact we have been able to create.
+            script.
+              var countryStoryMap = {};
+              countryStoryMap['QA'] = {'stories': []};
+              countryStoryMap['BH'] = {'stories': []};
+              countryStoryMap['KW'] = {'stories': []};
+              countryStoryMap['OM'] = {'stories': []};
+              countryStoryMap['PS'] = {'stories': []};
+              countryStoryMap['JO'] = {'stories': []};
+              countryStoryMap['MA'] = {'stories': []};
+              countryStoryMap['TR'] = {'stories': []};
+              countryStoryMap['IQ'] = {'stories': []};
+              countryStoryMap['LB'] = {'stories': []};
+              countryStoryMap['EG'] = {'stories': []};
+              countryStoryMap['PK'] = {'stories': []};
+              countryStoryMap['AE'] = {'stories': [{
+              'title' : 'Mohammad Nauman',
+              'text' : 'Captain in Dubai',
+              'image' : './rahul.jpeg',
+              'youtubeVideoId' : 'XHUCHUfU7pw'},
+              {
+              'title' : 'Aakash Jon',
+              'text' : 'Colleague in Dubai',
+              'image' : '/dA/2b27f65040/Aakash John.jpg',
+              'youtubeVideoId' : 'dmG6icu6BiE'},
+              {
+              'title' : 'Muhammad Zafar',
+              'text' : 'Captain in Dubai',
+              'image' : '/dA/5cd985ea0e/Muhammad Zafar.jpg',
+              'youtubeVideoId' : '6-4PLVORrAs'}]};
+              countryStoryMap['SA'] = {'stories': [{
+              'title' : 'Salem Khafeer',
+              'text' : 'Captain in KSA',
+              'image' : '/dA/58abf13b69/Salem Khafeer.jpg',
+              'youtubeVideoId' : 'IS6lnthN5VE'},
+              {
+              'title' : 'Salman Abdullah',
+              'text' : 'Captain in KSA',
+              'image' : '/dA/1c2eefb564/Salman Abdullah.jpg',
+              'youtubeVideoId' : '8LUUJ1ZhI-U'},
+              {
+              'title' : 'Ibrahim Mohammad',
+              'text' : 'Captain in KSA',
+              'image' : '/dA/0ff32d011a/Ibrahim Mohammad.jpg',
+              'youtubeVideoId' : 'lhNeUC4nrXw'}]};
+            style.
+              .story-video-player {
+              position: relative;
+              background-color: black;
+              overflow: hidden;
+              padding-top: 56.3%;
+              transition: padding 400ms;
+              border-radius: 6px;
+              }
+              .story-video-player.collapsed {
+              padding-top: 0;
+              border-radius: 0;
+              }
+              .story-video-player .btn-story-video-player-stop {
+              position: absolute;
+              padding: 0.7rem;
+              cursor: pointer;
+              color: white;
+              font-size: 2.3rem;
+              line-height: 0.5;
+              text-shadow: 1px 1px 7px #000;
+              right: 0;
+              top: -2rem;
+              opacity: 0;
+              transition: opacity 300ms 50ms, top 300ms 50ms;
+              }
+              .story-video-player:hover .btn-story-video-player-stop {
+              top: 0;
+              opacity: 1;
+              }
+              [dir=rtl] .story-video-player .btn-story-video-player-stop {
+              right: auto;
+              left: 0;
+              }
+              .story-video-player iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              height: 100%;
+              }
+              .carousel-cell {
+              width: 300px;
+              }
+              @media (min-width:953px) {
+              .carousel-cell {
+              width: 33%;
+              /*Temporary: Changes with the number of items.*/
+              }
+              }
+              .carousel-cell-container:after {
+              background: none;
+              }
+              .carousel-overlay {
+              background: linear-gradient(180deg, transparent 0%, #000 100%);
+              z-index: auto;
+              }
+              .carousel-text .story-name {
+              width: 200px;
+              }
+            .small-12.columns
+              .story-video-player.collapsed
+            .small-12.columns
+              #stories.carousel
+      script.
+        var pickUpPlaceholder = "Enter pickup location";
+        var dropoffPlaceholder = "Enter dropoff location";
+        //var fareEstimatorHeading = "Fare estimate";
+        var signUpRideText = "Signup and ride now";
+        var signUpRideUrl = "https://app.careem.com/signup/?lang={lang}";
+        var estimatorMessages = {
+        rideNow: "Ride Now",
+        rideLater: "Ride Later"
+        };
+      // Fare Estimator
+      //
+        <section class="grey fare-estimator">
+        <div class="content-wrapper">
+        <div class="container">
+        <div class="cities-overview">
+        <div class="small-12 medium-6 columns sec-form">
+        <h1 class="h1 small-10 mt2-d">What will your Careem cost?</h1>
+        <div class="text cell">
+        Enter a pickup and dropoff location to get a fare estimate for our different car types.
+        </div>
+        <div class="medium-12 large-10 drop-list" id='trip-estimate'></div>
+        </div>
+        <div id="gmap" class="small-12 medium-6 columns full-width-responsive"></div>
+        </div>
+        </div>
+        </div>
+        </section>
+        </main>
+        <script src="js/pages/index.js"></script>
+        <script src="js/pages/autocompleteControl.js"></script>
+        <script>
+        var storyVideoPlayer = new StoryVideoPlayer({'container': '.story-video-player', 'lang': language_code});
+        jQuery(document)
+        .on('click', '[data-youtube-id]', function (event) {
+        var target = event.target,
+        youtubeId = target.getAttribute('data-youtube-id');
+        if (youtubeId) {
+        storyVideoPlayer.playYouTube(youtubeId);
+        }
+        })
+        .on('click', '.btn-story-video-player-stop', function (event) {
+        storyVideoPlayer.stop();
+        });
+        </script>
+      // Footer
+      footer#footer-container.bg-primary
+      ._f9ec9d9336._3Ab5juFMzJF-7b7wtjXV8u
+        ._bd8ad78081.container._42eab231c8
+          ._ce5b122246
+            ._c610bfda08._66c6f2c006._138989633e
+              ._d4ac83e3f0
+                ._8e127829c8._9c4e067c71
+                  ._2f0854183c._513e48d2c8
+                    span English
+                    svg._1ea0406e06._834b6bb6cb._d2faa2e1ae(viewbox='0 0 114 57', height='5px', width='9px')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#toggle-triangle-expand')
+                  ._27be4ecaf1._fafd50492b._44bb50403b(style='height: 0px;')
+                    ul._18b1c4b1bb._d1a3a3a7e8._d52f39a584
+                      li._41091f06a5
+                        a(href='/ar-ae/') Arabic
+              ul._18b1c4b1bb._73406e4f8a._2oLm6xtK3_t6GhN-WTs17S
+                li._41091f06a5
+                  span._59b57dbba5.sJttbhsz211xejmuqDFDb
+                li._41091f06a5
+                  a._59b57dbba5.sJttbhsz211xejmuqDFDb._0211922507(href='https://help.careem.com/') Help
+            ._c610bfda08._b482335447._e2e4efcdb6
+              ._ce5b122246._b39793a1dc
+                ._c610bfda08._9e7582f018._bab4178efe._851666b927
+                  ._69aba82101._2a41b46316
+                    ._75a8ef44be
+                      | Shehri
+                      ._0ef70225b1
+                        svg._c8ac7b2850._834b6bb6cb(viewbox='0 0 200 206', height='100%')
+                          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#toggle-expand')
+                    ._27be4ecaf1._67a070333e(style='height: 0px;')
+                      ul._18b1c4b1bb._b45916676e
+                        li._41091f06a5
+                          a(href='/en-ae/how-it-works/', target='') How it works
+                        li._41091f06a5
+                          a(href='http://app.careem.com/?lang=en', target='_blank') What can you do?
+                ._c610bfda08._9e7582f018._bab4178efe._851666b927
+                  ._69aba82101._2a41b46316
+                    ._75a8ef44be
+                      | Discover
+                      ._0ef70225b1
+                        svg._c8ac7b2850._834b6bb6cb(viewbox='0 0 200 206', height='100%')
+                          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#toggle-expand')
+                    ._27be4ecaf1._67a070333e(style='height: 0px;')
+                      ul._18b1c4b1bb._b45916676e
+                        li._41091f06a5
+                          a(href='/en-ae/cities/') Our Mission
+                        li._41091f06a5
+                          a(href='https://old.careem.com/blog?lang=en', target='_blank') Blog
+                ._c610bfda08._9e7582f018._bab4178efe._851666b927
+                  ._69aba82101._2a41b46316
+                    ._75a8ef44be
+                      | Understand
+                      ._0ef70225b1
+                        svg._c8ac7b2850._834b6bb6cb(viewbox='0 0 200 206', height='100%')
+                          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#toggle-expand')
+                    ._27be4ecaf1._67a070333e(style='height: 0px;')
+                      ul._18b1c4b1bb._b45916676e
+                        li._41091f06a5
+                          a(href='/en-ae/our-story/') Civil Autorities
+                        li._41091f06a5
+                          a(href='/en-ae/business') Municipalities
+                ._c610bfda08._b2a83c03ff._bab4178efe._851666b927
+                  ._0d47c1a447
+                    ._f6796ead94
+                      a(href='https://itunes.apple.com')
+                        svg._c8ac7b2850(viewbox='0 0 136 44', height='100%', width='100%')
+                          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#app-store-badge')
+                    ._f6796ead94
+                      a(href='https://play.google.com/store/')
+                        svg._c8ac7b2850(viewbox='0 0 136 44', height='100%', width='100%')
+                          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#google-play-badge')
+          ._ce5b122246._bd14668442
+            ._c610bfda08._66c6f2c006._25c06d524a._23393fc384
+              ._76f20b8154
+                a(href='https://www.facebook.com/')
+                  svg._c8ac7b2850._834b6bb6cb(viewbox='0 0 42 42', height='100%', width='100%')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#facebook')
+              ._76f20b8154
+                a(href='https://twitter.com/')
+                  svg._c8ac7b2850._834b6bb6cb(viewbox='0 0 42 42', height='100%', width='100%')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#twitter')
+              ._76f20b8154
+                a(href='https://www.instagram.com/')
+                  svg._c8ac7b2850._834b6bb6cb(viewbox='0 0 42 42', height='100%', width='100%')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#instagram')
+              ._76f20b8154
+                a(href='https://www.linkedin.com/')
+                  svg._c8ac7b2850._834b6bb6cb(viewbox='0 0 42 42', height='100%', width='100%')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#linkedin')
+            ._c610bfda08._b482335447._534f1ef456._fda53f3add
+              ul._e5f17818fa
+                li
+                  a(href='/en-ae/terms/') Terms
+                li
+                  a(href='/en-ae/privacy/') Privacy
+                li ©2018 Chukandar
+
+      
+      script.
+        new WOW().init();
+      script.
+        // m = $('main');
+        // f = $('footer');
+        // $(document).ready(function() {
+        //     m.css('margin-bottom', f.height());
+        // });
+        // $(window).resize(function() {
+        //     m.css('margin-bottom', f.height());
+        // });
